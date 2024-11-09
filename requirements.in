@@ -1,0 +1,5 @@
+django
+SQLAlchemy
+alembic
+tortoise
+python-dotenv
