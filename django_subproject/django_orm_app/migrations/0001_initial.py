@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             name='OrderUser',
             fields=[
                 ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.order')),
+                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.order')),
             ],
         ),
         migrations.CreateModel(
@@ -53,13 +53,13 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('description', models.CharField(max_length=100)),
                 ('price', models.FloatField()),
-                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.group')),
+                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.group')),
             ],
         ),
         migrations.AddField(
             model_name='order',
             name='product',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.product'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.product'),
         ),
         migrations.CreateModel(
             name='User',
@@ -71,30 +71,30 @@ class Migration(migrations.Migration):
                 ('age', models.IntegerField()),
                 ('email', models.EmailField(max_length=254, unique=True)),
                 ('password', models.CharField(max_length=100)),
-                ('orders', models.ManyToManyField(related_name='users', through='orm_app.OrderUser', to='orm_app.order')),
+                ('orders', models.ManyToManyField(related_name='users', through='django_orm_app.OrderUser', to='django_orm_app.order')),
             ],
         ),
         migrations.AddField(
             model_name='orderuser',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.user'),
         ),
         migrations.AddField(
             model_name='order',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.user'),
         ),
         migrations.CreateModel(
             name='UserAddress',
             fields=[
                 ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('address', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.address')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='orm_app.user')),
+                ('address', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.address')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_orm_app.user')),
             ],
         ),
         migrations.AddField(
             model_name='address',
             name='users',
-            field=models.ManyToManyField(related_name='addresses', through='orm_app.UserAddress', to='orm_app.user'),
+            field=models.ManyToManyField(related_name='addresses', through='django_orm_app.UserAddress', to='django_orm_app.user'),
         ),
     ]
