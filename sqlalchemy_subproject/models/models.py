@@ -9,7 +9,7 @@ class Base(DeclarativeBase):
 
 class User(Base):
     __tablename__ = "users"
-    id: Mapped[BigInteger] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
     username = Column(String(100), unique=True)
     name = Column(String(100))
     surname = Column(String(100))
@@ -53,7 +53,7 @@ class Product(Base):
     __tablename__ = "products"
     id = Column(BigInteger, primary_key=True)
     name = Column(String(100))
-    group = Column(BigInteger, ForeignKey("groups.id"), delete="CASCADE")
+    group = Column(BigInteger, ForeignKey("groups.id"))
     description = Column(String(100))
     price = Column(Float)
     group = relationship("Group", back_populates="products")
@@ -62,8 +62,8 @@ class Product(Base):
 class OrderUser(Base):
     __tablename__ = "order_users"
     id = Column(BigInteger, primary_key=True)
-    user = Column(BigInteger, ForeignKey("users.id"), delete="CASCADE")
-    order = Column(BigInteger, ForeignKey("orders.id"), delete="CASCADE")
+    user = Column(BigInteger, ForeignKey("users.id"))
+    order = Column(BigInteger, ForeignKey("orders.id"))
 
     user = relationship("User", back_populates="orders")
     order = relationship("Order", back_populates="users")
@@ -72,8 +72,8 @@ class OrderUser(Base):
 class Order(Base):
     __tablename__ = "orders"
     id = Column(BigInteger, primary_key=True)
-    user = Column(BigInteger, ForeignKey("users.id"), delete="CASCADE")
-    product = Column(BigInteger, ForeignKey("products.id"), delete="CASCADE")
+    user = Column(BigInteger, ForeignKey("users.id"))
+    product = Column(BigInteger, ForeignKey("products.id"))
     quantity = Column(Integer)
     total_cost = Column(Float)
 
