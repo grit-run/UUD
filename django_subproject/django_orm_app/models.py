@@ -55,4 +55,3 @@ class Order(models.Model):
     quantity = models.IntegerField()
     total_cost = models.FloatField()
 
-# Create your models here.
