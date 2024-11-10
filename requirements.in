@@ -3,3 +3,5 @@ SQLAlchemy
 alembic
 tortoise
 python-dotenv
+psycopg2-binary
+typing-extensions
