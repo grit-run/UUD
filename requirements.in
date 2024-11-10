@@ -1,7 +1,8 @@
-django
-SQLAlchemy
-alembic
-tortoise
-python-dotenv
+django~=5.1.3
+SQLAlchemy~=2.0.36
+alembic~=1.14.0
+tortoise-orm
+python-dotenv~=1.0.1
 psycopg2-binary
-typing-extensions
+typing-extensions == 4.12.2
+asyncpg
