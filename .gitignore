@@ -9,5 +9,8 @@ __pycache__
 *.lock
 *.pid
 *.egg-info
-.env/
+.env
+env
+yaml
+/.env
 
