@@ -2,3 +2,12 @@ venv/
 .idea/
 __pycache__
 /.venv/
+*.pyc
+*.pyo
+*.log
+*.out
+*.lock
+*.pid
+*.egg-info
+.env/
+
