@@ -1,13 +1,15 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, BigInteger, Integer, String, ForeignKey, Float
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import DeclarativeBase, relationship, Mapped, mapped_column
 
-Base = declarative_base()
+
+class Base(DeclarativeBase):
+    pass
 
 
 class User(Base):
     __tablename__ = "users"
-    id = Column(BigInteger, primary_key=True)
+    id: Mapped[BigInteger] = mapped_column(primary_key=True)
     username = Column(String(100), unique=True)
     name = Column(String(100))
     surname = Column(String(100))
