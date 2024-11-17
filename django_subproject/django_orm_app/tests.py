@@ -1,14 +1,7 @@
 import time
 from django.test import TestCase
 from .models import *
-
-
-def test_running_time(operation, run_time):
-    """ write run time to file """
-    with open('run_time.txt', 'a') as file:
-        file.write(('{0}: {1}\n').format(operation, run_time))
-
-
+from .time_to_file import test_running_time
 class OrmAppTestCase(TestCase):
     def dj_test_create(self):
         """ Create USers/Addresses/Products"""
